@@ -3,10 +3,10 @@
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
-#+title: Plantilla para Toma de Notas en Clase
-#+date: 2024-07-
-#+author: COLOQUE SU NOMBRE
-#+email: coloque.su.nombre@epn.edu.ec
+#+title: Buses del sistema
+#+date: 2026-01-19
+#+author: Samara Salazar
+#+email: luzsamara.salazar@epn.edu.ec
 #+language: Español
 #+select_tags: export
 #+exclude_tags: noexport
@@ -48,69 +48,93 @@ ARQUITECTURA DE COMPUTADORES}
 #+begin_comment
 Este comentario contiene la estructura básica para toma de notas de
 acuerdo a la metodología explicada por la Universidad de Cornell.
-* 2024-xx-xx Título de la clase/charla
+* 2024-xx-xx Buses del Sistema y Estructuras de Interconexión
 ** Preguntas y Términos clave (Cue):
-- término clave1 ::
-- término clave2 ::
+- ¿Qué es un bus del sistema y para qué sirve? ::
+- ¿Cuáles son los módulos que interconecta el bus del sistema? ::
+- ¿Qué se entiende por estructuras de interconexión? ::
+- ¿Cómo funciona la interconexión con buses compartidos? ::
+- ¿Qué es la jerarquía de buses múltiples y por qué se utiliza? ::
+- ¿Cuáles son los principales elementos de diseño de un bus? ::
+- ¿Qué es la interconexión punto a punto? ::
+- ¿Qué ventajas tiene la interconexión punto a punto frente a los buses tradicionales? ::
+- ¿Qué es QPI y cuál es su función? ::
+- ¿Qué es PCI Express y por qué reemplazó a los buses paralelos? ::
+
 ** Notas (Notes):
-- nota1
-- nota2
-  - subnota
-  - subnota
-- nota3
-  1. numerado
-  2. numerado
+- Los *buses del sistema* constituyen el mecanismo fundamental de comunicación interna de un computador.
+- Permiten el intercambio de información entre los tres módulos principales:
+  1. CPU: ejecuta instrucciones y controla el sistema.
+  2. Memoria: almacena datos e instrucciones.
+  3. Entrada / Salida (E/S): conecta el sistema con el exterior.
+- Un bus es un *medio compartido* compuesto por un conjunto de líneas físicas por donde viajan señales eléctricas.
+
+- Las *estructuras de interconexión* determinan cómo se conectan y coordinan los distintos componentes del sistema.
+- Estas estructuras definen:
+  - Tipos de transferencia posibles.
+  - Métodos de control y sincronización.
+  - Mecanismos de arbitraje cuando varios dispositivos compiten por el bus.
+
+- En la *interconexión con buses*:
+  - Todos los dispositivos comparten el mismo conjunto de líneas.
+  - Solo un dispositivo puede transmitir en un instante determinado.
+  - El control del bus se realiza mediante protocolos de arbitraje.
+  - Es una solución sencilla y económica.
+  - Presenta limitaciones de rendimiento y escalabilidad al aumentar el número de dispositivos.
+
+- La *estructura del bus* se divide clásicamente en tres partes:
+  - *Bus de datos*:
+    - Transporta datos e instrucciones.
+    - Su ancho influye directamente en la cantidad de información transferida por ciclo.
+  - *Bus de direcciones*:
+    - Identifica posiciones de memoria o dispositivos de E/S.
+    - Determina el espacio máximo direccionable.
+  - *Bus de control*:
+    - Transporta señales de control y temporización.
+    - Indica operaciones de lectura, escritura, interrupciones y estados.
+
+- Para mejorar el rendimiento global se emplea una *jerarquía de buses múltiples*:
+  1. Buses de alta velocidad (cercanos a la CPU y memoria principal).
+  2. Buses intermedios.
+  3. Buses de menor velocidad para dispositivos de E/S.
+- Esta jerarquía:
+  - Reduce la congestión.
+  - Permite optimizar cada bus según su función.
+  - Aumenta la eficiencia del sistema.
+
+- Los *elementos de diseño de un bus* incluyen:
+  - Ancho del bus (número de bits por transferencia).
+  - Frecuencia de operación.
+  - Tipo de transferencia (síncrona o asíncrona).
+  - Métodos de arbitraje (centralizado o distribuido).
+  - Protocolos de control.
+- Estos factores determinan el *ancho de banda* y la *latencia* del sistema.
+
+- La *interconexión punto a punto* sustituye el bus compartido por enlaces dedicados entre pares de componentes.
+- Cada enlace es exclusivo, por lo que:
+  - No existe contención.
+  - Se incrementa el paralelismo.
+  - Mejora significativamente la escalabilidad.
+- Es el enfoque dominante en arquitecturas modernas y multiprocesador.
+
+- *QPI (QuickPath Interconnect)*:
+  - Tecnología desarrollada por Intel.
+  - Implementa interconexión punto a punto de alta velocidad.
+  - Conecta procesadores entre sí y con otros componentes.
+  - Reduce la latencia y aumenta el ancho de banda comparado con buses compartidos.
+
+- *PCI Express (PCIe)*:
+  - Estándar moderno de interconexión punto a punto para dispositivos de expansión.
+  - Utiliza enlaces seriales llamados *lanes*.
+  - Cada *lane* es bidireccional.
+  - El ancho de banda se escala agrupando lanes:
+    1. x1
+    2. x4
+    3. x8
+    4. x16
+  - Reemplaza a buses paralelos tradicionales como PCI y PCI-X.
+  - Ofrece mayor velocidad, menor latencia y mejor escalabilidad.
+
 ** Resumen (Summary):
-Aquí se realiza un breve resumen
+Los buses del sistema son el eje central de la comunicación interna del computador, permitiendo la interacción entre CPU, memoria y dispositivos de entrada/salida. Las estructuras de interconexión han evolucionado desde buses compartidos, simples pero limitados, hacia jerarquías de buses múltiples que optimizan el rendimiento. Posteriormente, la adopción de interconexiones punto a punto, como QPI y PCI Express, ha permitido eliminar la contención, aumentar el paralelismo y mejorar la escalabilidad. Estas tecnologías reflejan la evolución necesaria para satisfacer las demandas de rendimiento de los sistemas computacionales modernos.
 #+end_comment
-* 2024-xx-xx Título de la clase/charla
-** Preguntas y Términos clave (Cue):
-- ¿qué es el sistema de notas de U. Cornell? ::
-- TODO :: ????
-** Notas (Notes):
-- Sistema eficiente de toma de apuntes
-- Divide la hoja en tres secciones:
-  1. *Sección para preguntas*: apuntar todo lo que no se entiende o la
-     pregunta que surge de la charla
-  2. *Sección para notas: se coloca las notas normales. Aquí podemos
-     explotar Emacs y Programación literaria para incluir código de programación
-  3. *Resumen*: Una vez terminada la clase, en una fase posterior y
-     usando las notas tomadas, y resolviendo las inquietudes, se
-     escribe un resumen de la clase.
-- Emacs se puede usar para facilitar esta tarea dividiendo la pantalla mediante:
-  - Horizontal: ~C-x 2~
-  - Vertical: ~C-x 3~
-  - Cambiar de ventana ~C-x o~
-  - Cerrar una ventana que ya no quiero ~C-x 0~
-  - Cerrar todas las demás ventanas excepto en la que el cursor está ~C-x 1~
-- Una desventaja de Emacs es que no podemos graficar en la pantalla
-- Una ventaja es que podemos escribir la notación matemática usando \LaTeX
-- Una ventaja es que podemos escribir el código de programación de
-  cualquier lenguaje de programación y testearlo directamente desde el archivo.
-  1. numerado
-  2. numerado
-- Emacs nos permite adicionar el ~TODO~ para marcar las tareas y
-  controlar cuáles ya están realizadas. Para esto generamos más
-  viñetas con el [ ]. Si la tarea ya está realizada podemos dar ~C-c
-  C-c~ en la línea y cambiar el estado de la tarea a realizada. Pruebe
-  en el ejemplo.
-** Enlaces de Interés
-- [[https://lsc.cornell.edu/how-to-study/taking-notes/cornell-note-taking-system/][Página web de Cornell University sobre Toma de Notas]]
-- [[https://youtu.be/nX-xshA_0m8?si=20MELdipZ1cjRh2f][YouTube]]
-** Resumen (Summary):
-Emacs ofrece una herramienta que nos permite combinar código y
-literatura así como aprovechar \LaTeX para escribir notación
-matemática. Mediante el uso de combinaciones de teclas se puede
-alternar entre distintas pantallas. Así por ejemplo, se puede dividir
-la pantalla en una región para apuntar las preguntas, otra para las
-notas y una tercera para el resumen. Algo que no incluye la estrategia
-de Cornell es apuntar las tareas. Pero esto lo podemos aprovechar con
-Emacs ~TODO~.
-
-
-* TODO Mis Tareas [50%]
-- [X] Leer este documento
-- [ ] Escribir el resumen  de la exposición 1
-
-#+print_bibliography: 
- 
